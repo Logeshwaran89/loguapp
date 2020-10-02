@@ -8,7 +8,7 @@ import clock from "./clock";
 import calculator from "./calculator";
 import maps from "./maps";
  
-//This is jai
+//This is logu
 class App extends Component {
   render() {
     return (
