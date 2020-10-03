@@ -7,7 +7,6 @@ import {
 import clock from "./clock";
 import calculator from "./calculator";
 import maps from "./maps";
-import './Appd.css';
  
 //This is logu
 class App extends Component {
