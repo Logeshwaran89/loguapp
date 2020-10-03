@@ -1,7 +1,7 @@
 import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import vvv from "./vvv.jpg"
+import Logu from "./Logu.jpg"
 
 
 
@@ -15,7 +15,7 @@ function DemoCarousel() {
 	<div style={styles}>
 		<Carousel>
 			<div>
-				<img src={vvv} alt="Hong Kong" />
+				<img src={Logu} alt="Logu" />
 				<p className="legend">Hong Kong</p>
 			</div>
 			<div>
