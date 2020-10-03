@@ -4,10 +4,10 @@ import {
   NavLink,
   HashRouter
 } from "react-router-dom";
-import clock from "./clock";
-import calculator from "./calculator";
-import maps from "./maps";
-import DemoCarousel from "./DemoCarousel"
+import clock from "./js/clock";
+import calculator from "./js/calculator";
+import maps from "./js/maps";
+import DemoCarousel from "./js/DemoCarousel";
 
  
 //This is logu

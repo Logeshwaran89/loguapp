@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Appc.css';
+import '../css/clocks.css';
 class clock extends Component {
   constructor(){
     super()
