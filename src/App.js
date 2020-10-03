@@ -7,8 +7,11 @@ import {
 import clock from "./clock";
 import calculator from "./calculator";
 import maps from "./maps";
+<<<<<<< HEAD
 import DemoCarousel from "./DemoCarousel"
 import './Appd.css';
+=======
+>>>>>>> 8f48eec195743cdd888dbbbd9ff4905b7f800ba8
  
 //This is logu
 class App extends Component {
