@@ -3,8 +3,6 @@ import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Logu from "../image/Logu.jpg"
 
-
-
 let styles = {
     margin: 'auto',
     width: '500px'
