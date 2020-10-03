@@ -16,7 +16,6 @@ class clock extends Component {
       M_months:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Spt","Oct","Nov","Dec"],
     })
   }
-
  componentWillMount(){
    setInterval(()=>{
      let time= new Date()
@@ -31,7 +30,6 @@ class clock extends Component {
       second:time.getSeconds()
      })
    },1000)
-
  }
   array = length => Array.from({length}).map((v, k) => k).map(x=>x+1);
   addPreZero = num =>{
@@ -103,6 +101,7 @@ class clock extends Component {
                 </div>
               )
             })}
+
             {this.array(60).map((x,index)=>{
               return (
                 <div key={index} 
