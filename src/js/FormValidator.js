@@ -156,6 +156,7 @@ class FormValidator extends React.Component {
               </span>
             ))}
         </div>
+        <button className="submit">Submit</button>
       </form>
     );
   }

@@ -9,7 +9,7 @@ import calculator from "./js/calculator";
 import maps from "./js/maps";
 import DemoCarousel from "./js/DemoCarousel";
 import FormValidator from "./js/FormValidator";
-
+import FormContainer from "./js/FormContainer";
  
 //This is logu
 class App extends Component {
@@ -24,6 +24,7 @@ class App extends Component {
             <li><NavLink to="/maps">maps</NavLink></li>
             <li><NavLink to="/DemoCarousel">DemoCarousel</NavLink></li>
             <li><NavLink to="/FormValidator">FormValidator</NavLink></li>
+            <li><NavLink to="/FormContainer">FormContainer</NavLink></li>
           </ul>
           <div className="content">
           <Route path="/clock" component={clock}/>
@@ -31,6 +32,7 @@ class App extends Component {
             <Route path="/maps" component={maps}/>
             <Route path="/DemoCarousel" component={DemoCarousel}/>
             <Route path="/FormValidator" component={FormValidator}/> 
+            <Route path="/FormContainer" component={FormContainer}/> 
           </div>
         </div>
           </HashRouter>
