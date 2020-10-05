@@ -14,6 +14,11 @@ const validationRules = {
   age: age => {
     const re = /^[1-9]?[0-9]{1}$|^100$/;
     return re.test(String(age).toLowerCase());
+  },
+  dob:dob => {
+    const re =/^(0?[1-9]|[12][0-9]|3[01])[\/](0?[1-9]|1[012])[\/\-]\d{4}$/;
+    ;
+    return re.test(String(dob).toLowerCase());
   }
 };
 
@@ -38,11 +43,15 @@ class FormValidator extends React.Component {
       age: [
         { rule: validationRules.required, message: "Age is required" },
         { rule: validationRules.age, message: "Age is invalid" }
+      ],
+      dob: [
+        { rule: validationRules.required, message: "dob is required" },
+        { rule: validationRules.dob, message: "dob is invalid" }
       ]
       
     };
 
-    this.fields = ["firstName", "lastName", "phone", "email","age"];
+    this.fields = ["firstName", "lastName", "phone", "email","age","dob"];
 
     this.state = {
       signupForm: { isValid: false },
@@ -50,7 +59,9 @@ class FormValidator extends React.Component {
       lastName: { value: "", isTouched: false, isValid: false, errors: [] },
       phone: { value: "", isTouched: false, isValid: false, errors: [] },
       email: { value: "", isTouched: false, isValid: false, errors: [] },
-      age: { value: "", isTouched: false, isValid: false, errors: [] }
+      age: { value: "", isTouched: false, isValid: false, errors: [] },
+      dob: { value: "", isTouched: false, isValid: false, errors: [] }
+      
     };
   }
 
@@ -91,7 +102,7 @@ class FormValidator extends React.Component {
     this.validateForm();
   }
   render() {
-    const { firstName, lastName, phone, email,age } = this.state;
+    const { firstName, lastName, phone, email,age,dob } = this.state;
     return (
       <form>
         <div className="field-group">
@@ -178,6 +189,23 @@ class FormValidator extends React.Component {
           {age.isTouched &&
             age.errors.length > 0 &&
             age.errors.map((err, i) => (
+              <span key={i} className="error-message">
+                {err}
+              </span>
+            ))}
+        </div>
+        <div className="field-group">
+          <label>dob</label>
+          <input
+            className={dob.isTouched && !dob.isValid ? "has-error" : ""}
+            name="dob"
+            value={this.state.dob.value}
+            onChange={this.handleFieldChange}
+            onBlur={this.handleSetTouched}
+          />
+          {dob.isTouched &&
+            dob.errors.length > 0 &&
+            dob.errors.map((err, i) => (
               <span key={i} className="error-message">
                 {err}
               </span>
