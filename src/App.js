@@ -10,7 +10,7 @@ import maps from "./js/maps";
 import DemoCarousel from "./js/DemoCarousel";
 import FormValidator from "./js/FormValidator";
 import FormContainer from "./js/FormContainer";
- 
+import Form from "./js/Form";
 //This is logu
 class App extends Component {
   render() {
@@ -25,6 +25,7 @@ class App extends Component {
             <li><NavLink to="/DemoCarousel">DemoCarousel</NavLink></li>
             <li><NavLink to="/FormValidator">FormValidator</NavLink></li>
             <li><NavLink to="/FormContainer">FormContainer</NavLink></li>
+            <li><NavLink to="/Form">Form</NavLink></li>
           </ul>
           <div className="content">
           <Route path="/clock" component={clock}/>
@@ -33,6 +34,7 @@ class App extends Component {
             <Route path="/DemoCarousel" component={DemoCarousel}/>
             <Route path="/FormValidator" component={FormValidator}/> 
             <Route path="/FormContainer" component={FormContainer}/> 
+            <Route path="/Form" component={Form}/> 
           </div>
         </div>
           </HashRouter>

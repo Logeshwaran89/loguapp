@@ -10,6 +10,10 @@ const validationRules = {
   email: email => {
     const re = /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/;
     return re.test(String(email).toLowerCase());
+  },
+  age: age => {
+    const re = /^[1-9]?[0-9]{1}$|^100$/;
+    return re.test(String(age).toLowerCase());
   }
 };
 
@@ -30,17 +34,23 @@ class FormValidator extends React.Component {
       email: [
         { rule: validationRules.required, message: "Email is required" },
         { rule: validationRules.email, message: "Email is invalid" }
+      ],
+      age: [
+        { rule: validationRules.required, message: "Age is required" },
+        { rule: validationRules.age, message: "Age is invalid" }
       ]
+      
     };
 
-    this.fields = ["firstName", "lastName", "phone", "email"];
+    this.fields = ["firstName", "lastName", "phone", "email","age"];
 
     this.state = {
       signupForm: { isValid: false },
       firstName: { value: "", isTouched: false, isValid: false, errors: [] },
       lastName: { value: "", isTouched: false, isValid: false, errors: [] },
       phone: { value: "", isTouched: false, isValid: false, errors: [] },
-      email: { value: "", isTouched: false, isValid: false, errors: [] }
+      email: { value: "", isTouched: false, isValid: false, errors: [] },
+      age: { value: "", isTouched: false, isValid: false, errors: [] }
     };
   }
 
@@ -81,7 +91,7 @@ class FormValidator extends React.Component {
     this.validateForm();
   }
   render() {
-    const { firstName, lastName, phone, email } = this.state;
+    const { firstName, lastName, phone, email,age } = this.state;
     return (
       <form>
         <div className="field-group">
@@ -156,10 +166,27 @@ class FormValidator extends React.Component {
               </span>
             ))}
         </div>
+        <div className="field-group">
+          <label>Age</label>
+          <input
+            className={age.isTouched && !age.isValid ? "has-error" : ""}
+            name="age"
+            value={this.state.age.value}
+            onChange={this.handleFieldChange}
+            onBlur={this.handleSetTouched}
+          />
+          {age.isTouched &&
+            age.errors.length > 0 &&
+            age.errors.map((err, i) => (
+              <span key={i} className="error-message">
+                {err}
+              </span>
+            ))}
+        </div>
         <button className="submit">Submit</button>
       </form>
     );
   }
 }
 
-export default FormValidator;
+export default FormValidator;  
